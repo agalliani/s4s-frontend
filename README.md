@@ -1,7 +1,7 @@
 # s4s-frontend
 
 ## 1st Iteration
-- pagina di login docente
+IN CORSO - pagina di login docente
 - pagina di login studente (accesso tramite link ricevuto via mail)
 - pagina creazione classe (accesso per docente da pagina di login)
 
