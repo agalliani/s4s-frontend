@@ -16,8 +16,8 @@ import LoginBox from "./LoginBox.vue";
 export default {
   name: "LoginTeacher",
   components: {
-    LoginBox,
-  },
+    LoginBox
+  }
 };
 </script>
 
@@ -53,7 +53,9 @@ export default {
   font-size: 5vw;
   font-variant: small-caps;
   letter-spacing: 2px;
-  cursor: default;
-}
 
+  /** temporaneamente per mostrare che non è possibile accedere alle sezioni senza il login.
+  Da modificare poi..   */
+  cursor: not-allowed;
+}
 </style>

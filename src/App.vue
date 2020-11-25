@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <LoginTeacher />
+    <DashboardTeacher />
   </div>
 </template>
 
 <script>
-import LoginTeacher from "./components/LoginTeacher.vue";
-
+import DashboardTeacher from "./components/DashboardTeacher.vue";
 export default {
   name: "App",
   components: {
-    LoginTeacher,
+    DashboardTeacher,
   },
 };
 </script>
