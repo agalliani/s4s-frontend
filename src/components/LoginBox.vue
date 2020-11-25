@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: "LoginBox",
+  name: "LoginBox"
 };
 </script>
 
@@ -68,15 +68,14 @@ form {
 
 #form-children {
   height: 100%;
-
 }
 
 #name {
   margin-top: 5%;
 }
 
-#submit{
-    margin-top: 4%;
+#submit {
+  margin-top: 4%;
 }
 input[type="text"],
 select {
