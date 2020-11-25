@@ -10,13 +10,13 @@ const routes = [
     component: InstructionPage,
   },
   {
-    path: "/classroom-creation",
-    name: "classroom-creation",
+    path: "/classroom-management",
+    name: "classroom-management",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/ClassroomCreation.vue"),
+      import(/* webpackChunkName: "about" */ "../views/ClassroomManagement.vue"),
   },
 
   {
