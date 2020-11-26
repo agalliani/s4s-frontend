@@ -20,7 +20,7 @@ export default {
     LoginTeacher
   },
   data: () => ({
-    loginEnabled: true
+    loginEnabled: false
   })
 };
 </script>
