@@ -1,10 +1,10 @@
 # s4s-frontend
 
 ## 1st Iteration
-IN CORSO - pagina di registrazione docente
+- IN CORSO - pagina di registrazione docente
 - pagina di registrazione studente (accesso tramite link ricevuto via mail)
 - login unificato
-IN CORSO - pagina creazione classe (accesso per docente da pagina di login)
+- IN CORSO - pagina creazione classe (accesso per docente da pagina di login)
 
 
 
