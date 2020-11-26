@@ -20,6 +20,19 @@
             @input="$v.email.$touch()"
             @blur="$v.email.$touch()"
           ></v-text-field>
+          <v-text-field
+            v-model="password"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]"
+            :type="show1 ? 'text' : 'password'"
+            name="input-10-1"
+            label="Password"
+            hint="At least 8 characters"
+            counter
+            @click:append="show1 = !show1"
+            @input="$v.email.$touch()"
+            @blur="$v.email.$touch()"
+          ></v-text-field>
         </form>
       </v-card-text>
     </v-col>
@@ -48,14 +61,21 @@ export default {
     name: { required, maxLength: maxLength(10) },
     email: { required, email },
   },
+  data() {
+    return {
+      name: "",
+      email: "",
 
-  data: () => ({
-    name: "",
-    email: "",
-    select: null,
-    items: ["Item 1", "Item 2", "Item 3", "Item 4"],
-    checkbox: false,
-  }),
+      show1: false,
+
+      password: "",
+      rules: {
+        required: (value) => !!value || "Required.",
+        min: (v) => v.length >= 8 || "Min 8 characters",
+        emailMatch: () => `The email and password you entered don't match`,
+      },
+    };
+  },
 
   computed: {
     nameErrors() {
@@ -91,7 +111,7 @@ export default {
 <style>
 .col-form {
   padding-right: 25px;
-  
+
   /** centering */
   display: flex;
   justify-content: center;

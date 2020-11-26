@@ -7,7 +7,11 @@
       <div class="col-text">progetti</div>
     </div>
 
-    <LoginCard id="log-card" />
+    <v-col>
+      <v-row>
+        <LoginCard id="log-card" />
+      </v-row>
+    </v-col>
   </div>
 </template>
 
@@ -76,7 +80,7 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   /**size */
-  height: 30vh;
+  height: 350px;
   width: 40vw;
 }
 </style>
