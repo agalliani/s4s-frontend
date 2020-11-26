@@ -11,8 +11,12 @@
                     {{ card.className }}
                   </v-col>
                   <v-col md="2">
-                    <v-btn>
-                      Details
+                    <v-btn icon>
+                      <v-icon color="black">mdi-information-outline</v-icon>
+                    </v-btn>
+
+                    <v-btn icon @click.stop="deleteCard(card.id)">
+                      <v-icon color="black">mdi-delete</v-icon>
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -22,11 +26,10 @@
         </v-col>
       </v-list>
     </v-row>
-   
-        <v-btn id="btn-add" fab @click="dialog = !dialog">
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      
+
+    <v-btn id="btn-add" fab @click="dialog = !dialog">
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
 
     <v-dialog v-model="dialog" max-width="500px">
       <v-card>
@@ -111,6 +114,9 @@ export default {
 
       this.cards.push(newCard);
     },
+    deleteCard(id) {
+      this.cards = this.cards.filter((card) => card.id !== id);
+    },
   },
 };
 </script>
@@ -127,11 +133,11 @@ export default {
 }
 #list {
   width: 100%;
-  background-color: #b4f32195;
+  /* background-color: #daecaf95; */
 }
 #container-create {
   height: 100%;
-  background-color: lightgoldenrodyellow;
+  /* background-color: lightgoldenrodyellow; */
 }
 
 #row-second {
@@ -147,7 +153,6 @@ export default {
   /**color */
   background-color: green;
   color: white;
-
 
   bottom: 10px;
 }

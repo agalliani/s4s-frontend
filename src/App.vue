@@ -1,16 +1,27 @@
 <template>
   <div id="app">
-    <DashboardTeacher />
+    <div v-if="loginEnabled">
+        <LoginTeacher />
+    </div>
+    <div v-else>
+      <DashboardTeacher />
+    </div>
   </div>
 </template>
 
 <script>
 import DashboardTeacher from "./components/DashboardTeacher.vue";
+import LoginTeacher from "./components/LoginTeacher.vue";
+
 export default {
   name: "App",
   components: {
     DashboardTeacher,
+    LoginTeacher
   },
+  data: () => ({
+    loginEnabled: true
+  })
 };
 </script>
 
