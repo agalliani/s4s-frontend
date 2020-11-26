@@ -6,7 +6,8 @@
 - login unificato
 - IN CORSO - pagina creazione classe (accesso per docente da pagina di login)
 
-
+## Mockup DB
+json-server --watch db.json
 
 ## Project setup
 ```
