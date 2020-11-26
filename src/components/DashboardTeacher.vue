@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app id="inspire" >
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
@@ -30,7 +30,7 @@
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Sorint for school</v-toolbar-title>
+      <v-toolbar-title>Sorint for School</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
@@ -44,9 +44,16 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { title: "Create Classroom", icon: "mdi-view-dashboard", to: '/classroom-creation'},
+      { title: "Classroom Management", icon: "mdi-view-dashboard", to: '/classroom-management'},
       { title: "About", icon: "mdi-help-box", to: '/about' }
     ]
   })
 };
 </script>
+
+<style>
+.v-toolbar__content{
+    background-color: #F37021;
+}
+
+</style>
