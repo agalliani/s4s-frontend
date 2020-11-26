@@ -77,8 +77,11 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "ClassroomManagement",
+
   data() {
     return {
       dialog: false,
@@ -95,13 +98,11 @@ export default {
         (v) => !!v || "E-mail is required",
         (v) => /.+@.+/.test(v) || "E-mail must be valid",
       ],
-      cards: [
-        {
-          id: 1,
-          className: "Quarta A",
-        },
-      ],
+      //cards: [],
     };
+  },
+  computed: {
+    ...mapGetters({ cards: "getClassrooms" }),
   },
   methods: {
     addCard() {
@@ -112,10 +113,13 @@ export default {
         className: this.className,
       };
 
-      this.cards.push(newCard);
+      this.$store.dispatch("addNewClassroom", newCard);
+      location.reload(); //perchè non funziona la chiamata action????
     },
     deleteCard(id) {
-      this.cards = this.cards.filter((card) => card.id !== id);
+      console.log(id);
+      this.$store.dispatch("deleteClassroom", id);
+      location.reload();
     },
   },
 };

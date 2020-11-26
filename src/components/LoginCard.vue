@@ -25,13 +25,13 @@
             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
             :rules="[rules.required, rules.min]"
             :type="show1 ? 'text' : 'password'"
-            name="input-10-1"
             label="Password"
             hint="At least 8 characters"
+            required
             counter
             @click:append="show1 = !show1"
-            @input="$v.email.$touch()"
-            @blur="$v.email.$touch()"
+            @input="$v.password.$touch()"
+            @blur="$v.password.$touch()"
           ></v-text-field>
         </form>
       </v-card-text>
@@ -103,6 +103,7 @@ export default {
       this.$v.$reset();
       this.name = "";
       this.email = "";
+      this.password= "";
     },
   },
 };

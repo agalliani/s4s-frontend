@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div v-if="loginEnabled">
-        <LoginTeacher />
+      <LoginTeacher />
     </div>
     <div v-else>
       <DashboardTeacher />
@@ -12,16 +12,23 @@
 <script>
 import DashboardTeacher from "./components/DashboardTeacher.vue";
 import LoginTeacher from "./components/LoginTeacher.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
   components: {
     DashboardTeacher,
-    LoginTeacher
+    LoginTeacher,
   },
   data: () => ({
-    loginEnabled: false
-  })
+    loginEnabled: false,
+  }),
+  methods: {
+    ...mapActions(["setClassrooms"]),
+  },
+  mounted() {
+    this.setClassrooms();
+  },
 };
 </script>
 
