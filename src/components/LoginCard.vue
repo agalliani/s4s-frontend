@@ -98,12 +98,14 @@ export default {
   methods: {
     submit() {
       this.$v.$touch();
+      this.$store.dispatch("disableLogin");
+      location.reload();
     },
     clear() {
       this.$v.$reset();
       this.name = "";
       this.email = "";
-      this.password= "";
+      this.password = "";
     },
   },
 };

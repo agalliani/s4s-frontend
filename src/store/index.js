@@ -13,9 +13,9 @@ export default new Vuex.Store({
     SET_CLASSROOMS(state, payload) {
       state.classrooms = payload;
     },
-    ADD_NEW_CLASSROOM(state, payload) {
-      state.classrooms.push(payload);
-    },
+    // ADD_NEW_CLASSROOM(state, payload) {
+    //   state.classrooms.push(payload);
+    // },
   },
   actions: {
     //asynchronous
@@ -35,15 +35,29 @@ export default new Vuex.Store({
       };
       fetch(url, requestOptions)
         .then((response) => response.json())
-        .then("ADD_NEW_CLASSROOM", payload)
+        //.then("ADD_NEW_CLASSROOM", payload)
         .then(state.dispatch("setClassrooms")); //refresh data
     },
     async deleteClassroom(state, payload) {
       const requestOptions = {
         method: "DELETE",
       };
-      fetch(url+"/"+payload, requestOptions)
+      fetch(url + "/" + payload, requestOptions);
       //.then(state.dispatch("setClassrooms")); //refresh data
+    },
+    async addStudent(state, id) {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          studentName: "student.studentName",
+          email: "student.email",
+        }),
+      };
+      console.log(url+ "/?id="+ id +"/")
+      fetch(url+ "/?id="+ id +"/", requestOptions)
+        .then((response) => response.json())
+        .then(state.dispatch("setClassrooms")); //refresh data
     },
   },
   modules: {},

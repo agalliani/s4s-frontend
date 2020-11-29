@@ -5,22 +5,11 @@
         <v-col>
           <v-list-item v-for="card in cards" :key="card.id">
             <v-list-item-content>
-              <v-card class="classroom-card">
-                <v-row>
-                  <v-col class="center">
-                    {{ card.className }}
-                  </v-col>
-                  <v-col md="2">
-                    <v-btn icon>
-                      <v-icon color="black">mdi-information-outline</v-icon>
-                    </v-btn>
-
-                    <v-btn icon @click.stop="deleteCard(card.id)">
-                      <v-icon color="black">mdi-delete</v-icon>
-                    </v-btn>
-                  </v-col>
-                </v-row>
-              </v-card>
+              <ClassCard
+                :title="card.className"
+                :id="card.id"
+                :students="card.students"
+              />
             </v-list-item-content>
           </v-list-item>
         </v-col>
@@ -45,23 +34,11 @@
                     label="Class name"
                     required
                   ></v-text-field>
-                  <v-text-field
-                    v-model="studentname"
-                    :rules="nameRules"
-                    :counter="10"
-                    label="Student name"
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
-                    label="Student E-mail"
-                  ></v-text-field>
+
                 </v-col>
               </v-row>
             </v-container>
           </v-form>
-
-          <small>* This doesn't actually save.</small>
         </v-card-text>
 
         <v-card-actions>
@@ -77,28 +54,26 @@
 </template>
 
 <script>
+import ClassCard from "../components/ClassCard.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "ClassroomManagement",
+  components: {
+    ClassCard,
+  },
 
   data() {
     return {
+      show: false,
       dialog: false,
-
       valid: false,
-      studentname: "",
+
       className: "",
       nameRules: [
         (v) => !!v || "Name is required",
         (v) => v.length <= 10 || "Name must be less than 10 characters",
       ],
-      email: "",
-      emailRules: [
-        (v) => !!v || "E-mail is required",
-        (v) => /.+@.+/.test(v) || "E-mail must be valid",
-      ],
-      //cards: [],
     };
   },
   computed: {
@@ -106,20 +81,17 @@ export default {
   },
   methods: {
     addCard() {
-      this.dialog = false;
+      this.dialog = true;
 
       let newCard = {
         id: Date.now(),
         className: this.className,
+        
       };
 
       this.$store.dispatch("addNewClassroom", newCard);
+
       location.reload(); //perchè non funziona la chiamata action????
-    },
-    deleteCard(id) {
-      console.log(id);
-      this.$store.dispatch("deleteClassroom", id);
-      location.reload();
     },
   },
 };
@@ -131,10 +103,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.classroom-card {
-  background-color: #f3722168;
-  width: 80%;
-}
+
 #list {
   width: 100%;
   /* background-color: #daecaf95; */

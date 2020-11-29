@@ -4,10 +4,10 @@
   </div>
 </template>
 
-<style  scoped>
+<style scoped>
 .about {
   height: 100%;
-  
+
   /** centering */
   display: flex;
   justify-content: center;
