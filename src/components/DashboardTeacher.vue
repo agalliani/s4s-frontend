@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" >
+  <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
@@ -7,7 +7,7 @@
             Nome Docente
           </v-list-item-title>
           <v-list-item-subtitle>
-           Istituto
+            Istituto
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -40,20 +40,27 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
+    name: "Dashboard Teacher",
+    mounted() {
+        this.setNotLogin();
+    },
   data: () => ({
     drawer: null,
     items: [
       { title: "Classroom Management", icon: "mdi-view-dashboard", to: '/classroom-management'},
       { title: "About", icon: "mdi-help-box", to: '/about' }
     ]
-  })
+  }),
+  methods: {
+      ...mapActions(["setNotLogin"]),
+  }
 };
 </script>
 
 <style>
-.v-toolbar__content{
-    background-color: #F37021;
+.v-toolbar__content {
+  background-color: #f37021;
 }
-
 </style>

@@ -54,6 +54,7 @@
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
 
+
 export default {
   mixins: [validationMixin],
 
@@ -96,10 +97,11 @@ export default {
   },
 
   methods: {
+   
     submit() {
       this.$v.$touch();
-      this.$store.dispatch("disableLogin");
-      location.reload();
+      this.setNotLogin();
+      //location.reload();
     },
     clear() {
       this.$v.$reset();

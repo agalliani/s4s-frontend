@@ -4,27 +4,34 @@
       <LoginTeacher />
     </div>
     <div v-else>
-      <DashboardTeacher />
+      <!-- <DashboardTeacher /> -->
+      <LiveCourse />
     </div>
   </div>
 </template>
 
 <script>
-import DashboardTeacher from "./components/DashboardTeacher.vue";
+// import DashboardTeacher from "./components/DashboardTeacher.vue";
+import LiveCourse from "./views/LiveCourse.vue"
 import LoginTeacher from "./components/LoginTeacher.vue";
 import { mapActions } from "vuex";
 
 export default {
   name: "App",
   components: {
-    DashboardTeacher,
+    // DashboardTeacher,
+    LiveCourse,
     LoginTeacher,
   },
+
+  computed: {
+
+  },
   data: () => ({
-    loginEnabled: false,
+      loginEnabled: false,
   }),
   methods: {
-    ...mapActions(["setClassrooms"]),
+    ...mapActions(["setClassrooms", ]),
   },
   mounted() {
     this.setClassrooms();

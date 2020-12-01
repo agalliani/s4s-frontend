@@ -6,6 +6,7 @@ const url = "http://localhost:3000/classrooms";
 
 export default new Vuex.Store({
   state: {
+    
     classrooms: [],
   },
   mutations: {
@@ -16,9 +17,11 @@ export default new Vuex.Store({
     // ADD_NEW_CLASSROOM(state, payload) {
     //   state.classrooms.push(payload);
     // },
+    
   },
   actions: {
     //asynchronous
+   
     async setClassrooms(state) {
       const classrooms = await fetch(url);
       const c = await classrooms.json();
@@ -45,25 +48,18 @@ export default new Vuex.Store({
       fetch(url + "/" + payload, requestOptions);
       //.then(state.dispatch("setClassrooms")); //refresh data
     },
-    async addStudent(state, id) {
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          studentName: "student.studentName",
-          email: "student.email",
-        }),
-      };
-      console.log(url+ "/?id="+ id +"/")
-      fetch(url+ "/?id="+ id +"/", requestOptions)
-        .then((response) => response.json())
-        .then(state.dispatch("setClassrooms")); //refresh data
+    async addStudent() {
+      console.log("addStudent() action called");
     },
   },
   modules: {},
+
   getters: {
     getClassrooms(state) {
       return state.classrooms;
+    },
+    getLoginFlag(state) {
+      return state.loginEnabled;
     },
   },
 });

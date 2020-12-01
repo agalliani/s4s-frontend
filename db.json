@@ -10,17 +10,27 @@
         },
         {
           "studentName": "Bob",
-          "email": "andrea.galliani.29@gmail.com"
+          "email": "bob@gmail.com"
         },
         {
-          "studentName": "Andrea",
-          "email": "andrea.galliani.29@gmail.com"
+          "studentName": "Marco",
+          "email": "marco@mail.com"
         }
       ]
     },
     {
-      "id": 1606608859952,
-      "className": "Terza C"
+      "id": 1606750656280,
+      "className": "Quinta A",
+      "students": [
+        {
+          "studentName": "Luca",
+          "email": "luca@mail.com"
+        },
+        {
+          "studentName": "Piero",
+          "email": "bipob@mail.com"
+        }
+      ]
     }
   ]
 }

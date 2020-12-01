@@ -114,7 +114,7 @@ export default {
       console.log("Pressed DELETE button");
     },
     addItem(id) {
-      console.log("Pressed ADD button"+ " " + id);
+    //console.log("Pressed ADD button"+ " " + id);
     //   let details = {
     //       studentName: name,
     //       email: mail

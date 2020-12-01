@@ -7,11 +7,9 @@
       <div class="col-text">progetti</div>
     </div>
 
-    <v-col>
-      <v-row>
+    
         <LoginCard id="log-card" />
-      </v-row>
-    </v-col>
+     
   </div>
 </template>
 
